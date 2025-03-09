@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dream Chatbot</title>
+</head>
+<body>
+    <h2>Dream Analysis Chatbot</h2>
+    <textarea id="dream_text" placeholder="Describe your dream..."></textarea>
+    <br>
+    <select id="mode">
+        <option value="analysis">Analyze</option>
+        <option value="story">Expand Story</option>
+    </select>
+    <br>
+    <button onclick="sendDream()">Submit</button>
+
+    <h3>Response:</h3>
+    <p id="response"></p>
+
+    <script>
+        function sendDream() {
+            let dream_text = document.getElementById("dream_text").value;
+            let mode = document.getElementById("mode").value;
+
+            fetch("/dream_analysis/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ dream_text: dream_text, mode: mode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("response").innerText = data.result || data.error;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
