@@ -28,3 +28,5 @@ def dream_analysis(request):
             return JsonResponse({"error": "Invalid JSON input"}, status=400)
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
+
+# this is a cloned project
