@@ -34,17 +34,21 @@ Dream_Bot is a project designed to let users share their dreams, analyze them, o
 
 - Run the main application (update this section based on your entrypoint script):
     ```bash
-    python main.py
+    python manage.py runsever
     ```
 - Follow the prompts to share your dream and receive analysis or creative expansion.
 
 ## Project Structure
 
-- `main.py` - Main entry point for the Dream_Bot.
+- `Views.py` - Core logic for the Bot.
 - `dream_analysis/` - Modules for analyzing and expanding dreams.
-- `utils/` - Utility functions and helpers.
 - `README.md` - Project documentation.
 - `requirements.txt` - List of Python dependencies.
+- `genai_analyzer.py`- prompting the Gemini to understand the dreams
+
+## Used Tech
+- Python
+- Django
 
 ## Contributing
 
